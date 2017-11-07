@@ -10,6 +10,8 @@ export default class Apply extends stream.Transform {
 			await this.functionToApply(item);
 		} catch (err) {
 			this.emit('error', err);
+
+			throw err;
 		}
 		this.push(item);
 		cb();
