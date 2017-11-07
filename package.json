@@ -1,0 +1,31 @@
+{
+  "name": "object-stream",
+  "version": "1.0.0",
+  "description": "Some helpers to ease object strems",
+  "main": "./lib/index.js",
+  "types": "./lib.d/index.d.ts",
+  "scripts": {
+    "preversion": "npm install && npm run build && npm run check:install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "rm -Rf ./lib && rm -Rf ./lib.d",
+    "build": "tsc",
+    "check:install": "npm install . -g",
+    "check:build": "tsc --noEmit",
+    "check:style": "tslint -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AitorGuerrero/object-stream.git"
+  },
+  "author": "Aitor Guerrero<aguerrerolasarte@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AitorGuerrero/object-stream/issues"
+  },
+  "homepage": "https://github.com/AitorGuerrero/object-stream#readme",
+  "devDependencies": {
+    "@types/node": "^8.0.34",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.3"
+  }
+}
