@@ -1,12 +1,12 @@
 import * as stream from 'stream';
 
-export class Transform extends stream.Transform {
+export class Duplex extends stream.Duplex {
 
 	public ended: Promise<void>;
 	public finished: Promise<void>;
 	public closed: Promise<void>;
 
-	constructor(opts?: stream.TransformOptions) {
+	constructor(opts?: stream.DuplexOptions) {
 		super(Object.assign(opts, {objectMode: true}));
 		this.ended = new Promise((rs, rj) => {
 			this.on('end', rs);

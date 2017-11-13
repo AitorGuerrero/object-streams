@@ -1,17 +1,12 @@
 import * as stream from 'stream';
 
-export class Transform extends stream.Transform {
+export class Writable extends stream.Writable {
 
-	public ended: Promise<void>;
 	public finished: Promise<void>;
 	public closed: Promise<void>;
 
-	constructor(opts?: stream.TransformOptions) {
+	constructor(opts?: stream.WritableOptions) {
 		super(Object.assign(opts, {objectMode: true}));
-		this.ended = new Promise((rs, rj) => {
-			this.on('end', rs);
-			this.on('error', rj);
-		});
 		this.finished = new Promise((rs, rj) => {
 			this.on('finished', rs);
 			this.on('error', rj);
