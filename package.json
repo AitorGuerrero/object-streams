@@ -1,6 +1,6 @@
 {
   "name": "@aitor.guerrero/object-stream",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Some helpers to ease object strems",
   "main": "./lib/index.js",
   "types": "./lib.d/index.d.ts",
