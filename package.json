@@ -1,5 +1,5 @@
 {
-  "name": "@AitorGuerrero/object-stream",
+  "name": "@aitor.guerrero/object-stream",
   "version": "1.0.0",
   "description": "Some helpers to ease object strems",
   "main": "./lib/index.js",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/AitorGuerrero/object-stream#readme",
   "devDependencies": {
-    "@types/node": "^8.0.34",
+    "@types/node": "^8.0.51",
     "tslint": "^5.7.0",
     "typescript": "^2.5.3"
   }
