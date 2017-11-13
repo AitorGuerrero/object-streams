@@ -1,5 +1,5 @@
 {
-  "name": "object-stream",
+  "name": "@AitorGuerrero/object-stream",
   "version": "1.0.0",
   "description": "Some helpers to ease object strems",
   "main": "./lib/index.js",
