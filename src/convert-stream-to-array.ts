@@ -1,12 +1,14 @@
+import {Readable, Writable} from 'stream';
 import {forEach} from './for-each';
-import {Readable} from './readable.class';
 
-export async function convertStreamToArray<E>(inputStream: Readable) {
+export async function convertStreamToArray<E>(inputStream: Readable | Writable) {
 	const list: E[] = [];
 	inputStream.pipe(forEach((i) => list.push(i)));
 
 	return new Promise<E[]>((rs, rj) => {
-		inputStream.ended.then(() => rs(list), rj);
-		inputStream.closed.then(() => rs(list), rj);
+		inputStream.on('end', () => rs(list));
+		inputStream.on('finish', () => rs(list));
+		inputStream.on('close', () => rs(list));
+		inputStream.on('error', rj);
 	});
 }
