@@ -1,7 +1,7 @@
-import * as stream from 'stream';
+import {Transform} from './transform.class';
 
 export function forEach(functionToApply: (item: any) => any) {
-	return new stream.Transform({
+	return new Transform({
 		transform(item: any, enc: any, cb: () => any) {
 			try {
 				functionToApply(item);

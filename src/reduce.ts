@@ -1,4 +1,5 @@
-import {Readable, Transform} from 'stream';
+import {Readable} from 'stream';
+import {Transform} from './transform.class';
 
 export function reduce<R, D>(
 	stream: Readable,
@@ -7,7 +8,6 @@ export function reduce<R, D>(
 ) {
 	let result: R = initial;
 	const reducedStream = stream.pipe(new Transform({
-		objectMode: true,
 		transform(data: any, encoding: string, cb: () => any) {
 			try {
 				if (result === undefined) {
@@ -23,8 +23,5 @@ export function reduce<R, D>(
 		},
 	}));
 
-	return new Promise<R>((rs, rj) => {
-		reducedStream.on('finish', () => rs(result));
-		reducedStream.on('error', (err) => rj(err));
-	});
+	return reducedStream.finished;
 }
