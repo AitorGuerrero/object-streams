@@ -1,6 +1,7 @@
 export * from './async-map';
 export * from './async-for-each';
 export * from './async-filter';
+export * from './async-multi-map';
 export * from './convert-stream-to-array';
 export * from './duplex.class';
 export * from './filter';
@@ -8,6 +9,7 @@ export * from './for-each';
 export * from './make-batches';
 export * from './map';
 export * from './multi-map';
+export * from './readable.class';
 export * from './reduce';
 export * from './transform.class';
 export * from './writable.class';
